@@ -1,12 +1,21 @@
+{% comment %} {% load compress %} {% endcomment %}
+{% load static tailwind_tags %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Nigeria Tori😏😎</title>
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+        {% comment %} <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> {% endcomment %}
+        {% comment %} <link rel= "stylesheet" href="{% static 'src/output.css' %}"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="{% static './src/styles.css %}"> {% endcomment %}
+    
+    {% tailwind_css %}
+
 </head>
 <body>
-<h1>#Tori😎✌👌</h1>
+<h1 class="text-red-400">#Tori😎✌👌</h1>
 <a href="{% url "blog_index" %}">Home</a>
 <hr>
 {% block page_title %}{% endblock page_title %}

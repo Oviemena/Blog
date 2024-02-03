@@ -134,7 +134,7 @@ STATIC_URL = 'theme/static/'
 # STATICFILES_FINDERS = ( 'compressor.finders.CompressorFinder' ,)
 
 INTERNAL_IPS = [
-    "127.0.0.1",
+    "127.0.0.1",   
 ]
 
 # WEBPACK_LOADER = {

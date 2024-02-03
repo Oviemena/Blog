@@ -2,21 +2,21 @@
 
 
 {% block page_title %}
-    <h2>{{ post.title }}</h2>
+    <h2 class="font-medium font-mono text-amber-500">#{{ post.title }}</h2>
 {% endblock page_title %}
 
 {% block page_content %}
-    <small>
+    <small class="text-[10px] font-medium">
         {{ post.created_on.date }} | Categories:
         {% for category in post.categories.all %}
-            <a href="{% url 'blog_category' category.name %}">
+            <a href="{% url 'blog_category' category.name %}" class=" italic underline text-blue-400">
                 {{ category.name }}
             </a>
         {% endfor %}
     </small>
-    <p>{{ post.body | linebreaks }}</p>
-    <h3>Leave a comment:</h3>
-    <form method="post">
+    <p class="text-[15px] mt-3 mb-4 font-serif font-medium">{{ post.body | linebreaks }}</p>
+    <h3 class="mt-3 font-extralight">Leave a comment:</h3>
+    <form method="post"  >
         {% csrf_token %}
         <div class="pb-3">
             {{ form.author }}
@@ -24,15 +24,15 @@
         <div>
             {{ form.body }}
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center mb-4">Post Comment</button>
     </form>
 
-    <h3>Comments:</h3>
+    <h3 class="tetx-[10px text-amber-500 mb-2">Comments:</h3>
     {% for comment in comments %}
-        <p>
-            On {{ comment.created_on.date }} <b>{{ comment.author }}</b> wrote:
+        <p class="font-serif text-slate-400">
+            {{ comment.created_on.date }} - <b>{{ comment.author }}</b> wrote:
         </p>
-        <p>
+        <p class="font-mono font-light mb-[-5px] mt-1">
             {{ comment.body | linebreaks }}
         </p>
     {% endfor %}

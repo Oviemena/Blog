@@ -14,11 +14,13 @@
     {% tailwind_css %}
 
 </head>
-<body>
-<h1 class="text-red-400">#Tori😎✌👌</h1>
-<a href="{% url "blog_index" %}">Home</a>
-<hr>
-{% block page_title %}{% endblock page_title %}
-{% block page_content %}{% endblock page_content %}
+<body class="bg-slate-600 w-[1200px] mx-auto">
+    <div class="w-3/4 mx-auto">
+    <h1 class="text-blue-700 mb-3 font-black font-mono text-2xl">#Tori😎✌👌</h1>
+    <a href="{% url "blog_index" %}" class="text-[whitesmoke] font-semibold underline decoration-amber-500">Home</a>
+    <hr>
+    {% block page_title %}{% endblock page_title %}
+    {% block page_content %}{% endblock page_content %}
+    </div>
 </body>
 </html>

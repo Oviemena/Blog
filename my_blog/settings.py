@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -130,6 +131,8 @@ DATETIME_FORMAT = "%A, %d %B , %Y at %I:%M:%S %p"
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'theme/*static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'theme')
 
 # COMPRESS_ROOT = BASE_DIR /  'static'
 # COMPRESS_ENABLED = True

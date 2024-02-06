@@ -117,17 +117,19 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Lagos'
 
 USE_I18N = True
 
 USE_TZ = True
 
+DATETIME_FORMAT = "%A, %d %B , %Y at %I:%M:%S %p"
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'theme/static/'
+STATIC_URL = 'theme/*static/'
 
 # COMPRESS_ROOT = BASE_DIR /  'static'
 # COMPRESS_ENABLED = True

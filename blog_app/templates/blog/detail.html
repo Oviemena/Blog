@@ -1,21 +1,27 @@
 {% extends "base.html" %}
 
-
 {% block page_title %}
     <h2 class="font-medium font-mono text-amber-500">#{{ post.title }}</h2>
 {% endblock page_title %}
 
 {% block page_content %}
-    <small class="text-[10px] font-medium">
-        {{ post.created_on.date }} | Categories:
+    <small class="text-[11px] font-medium">
+        {{ post.created_on }} | Categories:
         {% for category in post.categories.all %}
             <a href="{% url 'blog_category' category.name %}" class=" italic underline text-blue-400">
                 {{ category.name }}
             </a>
         {% endfor %}
     </small>
-    <p class="text-[15px] mt-3 mb-4 font-serif font-medium">{{ post.body | linebreaks }}</p>
-    <h3 class="mt-3 font-extralight">Leave a comment:</h3>
+    <p class="text-[15px] text-[whitesmoke] mt-3 mb-4 font-serif font-medium cursor-pointer relative" id="copy">{{ post.body|linebreaksbr }}</p>
+    <button id="copyId" class="items-center p-2 w-[5px] h-[15px] justify-items-center place-content-center rounded-2xl">
+    <span class=" mt-[30px] outline outline-offset-2 outline-1  outline-slate-400 hover:outline-slate-200 "><i class="cursor-pointer fas fa-copy text-slate-400 hover:text-slate-200 text-[1em]" id="icon"></i></span>
+    </button>
+    <div class=" w-10 h-7 mt-1 bg-black items-center px-2 rounded-md hidden" id="span_copy">
+    <span  class=" text-[.7em] text-slate-100 font-mono">copy</span>
+    </div>
+    
+    <h3 class="mt-3 font-medium">Leave a comment:</h3>
     <form method="post"  >
         {% csrf_token %}
         <div class="pb-3">
@@ -27,13 +33,13 @@
         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center mb-4">Post Comment</button>
     </form>
 
-    <h3 class="tetx-[10px text-amber-500 mb-2">Comments:</h3>
+    <h3 class="text-[10px] text-amber-500 mb-2">Comments:</h3>
     {% for comment in comments %}
         <p class="font-serif text-slate-400">
-            {{ comment.created_on.date }} - <b>{{ comment.author }}</b> wrote:
+            {{ comment.created_on }} - <b>{{ comment.author }}</b> wrote:
         </p>
-        <p class="font-mono font-light mb-[-5px] mt-1">
-            {{ comment.body | linebreaks }}
+        <p class="font-mono font-light mb-[-5px] mt-1 text-slate-300">
+            {{ comment.body | linebreaksbr }}
         </p>
     {% endfor %}
 {% endblock page_content %}

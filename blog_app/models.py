@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinLengthValidator
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
@@ -10,7 +11,11 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    body = models.TextField(
+        validators = [
+            MinLengthValidator(200, 'post must be at least 200 characters!')
+        ]
+    )
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField("Category", related_name="posts")

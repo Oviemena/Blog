@@ -132,7 +132,7 @@ DATETIME_FORMAT = "%A, %d %B , %Y at %I:%M:%S %p"
 
 STATIC_URL = 'theme/*static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'theme' , 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'theme' , '*static')
 
 # COMPRESS_ROOT = BASE_DIR /  'static'
 # COMPRESS_ENABLED = True

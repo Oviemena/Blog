@@ -34,12 +34,17 @@
     </form>
 
     <h3 class="text-[10px] text-amber-500 mb-2">Comments:</h3>
-    {% for comment in comments %}
+    {% if comments %}
+        {% for comment in comments %}
         <p class="font-serif text-slate-400">
             {{ comment.created_on }} - <b>{{ comment.author }}</b> wrote:
         </p>
         <p class="font-mono font-light mb-[-5px] mt-1 text-slate-300">
             {{ comment.body | linebreaksbr }}
         </p>
-    {% endfor %}
+        {% endfor %}
+    {% else %}
+    <p>Be the first to comment on this post</p>
+    {% endif %}
+
 {% endblock page_content %}

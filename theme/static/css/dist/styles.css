@@ -816,6 +816,14 @@ select {
   width: 5px;
 }
 
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
